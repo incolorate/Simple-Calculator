@@ -1,51 +1,74 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
+body {
+  background-color: azure;
+}
+
+/* Center the calculator  */
+.calculator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  min-height: 500px;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+/* calculator settings */
 .screen {
-    background-color: black;
-    margin: 0px;
-    padding: 0px; 
-    width: 100%;
-    height: 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: right;
-}
-.calculator {
-    max-width: 600px; 
-} 
-.screen p {
-    color:white;
-    font-size: 2rem;
-    padding: 3px;
+  background-color: black;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 6rem;
+  text-align: right;
 }
 
-button {
-    font-size: 2rem ;
+.calculator {
+  max-width: 600px;
+  min-width: 350px;
 }
+
+/* Display  text */
+.screen p {
+  color: white;
+  font-size: 2rem;
+  padding: 3px;
+}
+
+/* Font sizes */
+button {
+  font-size: 2rem;
+}
+
+/* Align the buttons */
 .keys {
-    width: 100%;
-    background-color: black ;
-    height: 375px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 1px; 
+  width: 100%;
+  background-color: black;
+  height: 375px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1px;
 }
 
 .keys .clean {
-    grid-column-start: 1;
-    grid-column-end:3;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 .keys .zero {
-    grid-column-start: 1;
-    grid-column-end:4;
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .keys .lastr {
-    background-color: orange;
+  background-color: orange;
 }
 
 .keys .colorc {
-    background-color: papayawhip;
+  background-color: papayawhip;
 }

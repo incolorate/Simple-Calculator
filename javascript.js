@@ -7,9 +7,8 @@ let zero = 0;
 let symbol = "";
 let currentTotal = 0;
 
-
-function handleNumber () {
-  currentValue = Number(currentValue + this.innerText );
+function handleNumber() {
+  currentValue = Number(currentValue + this.innerText);
   screen.innerText = currentValue;
 }
 
@@ -18,38 +17,35 @@ function handleSymbol() {
 }
 
 function handleOperator() {
-      switch (symbol) {
-        case "+":
-        case "X":
-        case "-":
-        case "÷":
-          handleMath();
-          break;
-        case "=":
-          handleEqual();
-          break;
-        case "C":
-          handleC();
-        case "⌫":
-          handleDelete();
-      }
-      
+  switch (symbol) {
+    case "+":
+    case "X":
+    case "-":
+    case "÷":
+      handleMath();
+      break;
+    case "=":
+      handleEqual();
+      break;
+    case "C":
+      handleC();
+    case "⌫":
+      handleDelete();
+  }
 }
 
-function handleDelete () {
-  if ( screen.innerText == currentValue) {
-  currentValue = String(currentValue);
-  currentValue = currentValue.slice(0, -1);
-  currentValue = Number(currentValue);
-  screen.innerText = currentValue;
-  
-  } else if ( screen.innerText == total) {
+function handleDelete() {
+  if (screen.innerText == currentValue) {
+    currentValue = String(currentValue);
+    currentValue = currentValue.slice(0, -1);
+    currentValue = Number(currentValue);
+    screen.innerText = currentValue;
+  } else if (screen.innerText == total) {
     total = String(total);
     total = total.slice(0, -1);
     total = Number(total);
     currentTotal = total;
     screen.innerText = total;
-   
   }
 }
 function handleC() {
@@ -61,40 +57,36 @@ function handleC() {
   screen.innerText = zero;
 }
 
-function handleMath () {
+function handleMath() {
   currentTotal = currentTotal + currentValue;
   currentValue = 0;
   previousOperator = symbol;
 }
 
-
-
 function handleEqual() {
- if (previousOperator === "+") {
-  total = currentTotal + currentValue;
-  currentTotal = total;
-  screen.innerText =  total;
-  currentValue = 0;
-
+  if (previousOperator === "+") {
+    total = currentTotal + currentValue;
+    currentTotal = total;
+    screen.innerText = total;
+    currentValue = 0;
   } else if (previousOperator === "X") {
- total = currentTotal * currentValue;
- currentTotal = total;
- screen.innerText =  total;
- currentValue = 0;
-
+    total = currentTotal * currentValue;
+    currentTotal = total;
+    screen.innerText = total;
+    currentValue = 0;
   } else if (previousOperator === "-") {
- total = currentTotal - currentValue;
- currentTotal = total;  
- screen.innerText =  total;
- currentValue = 0;
-}  else if (previousOperator === "÷") {
-  total = currentTotal / currentValue;
-  currentTotal = total;  
-  screen.innerText =  total;
-  currentValue = 0;
- }
+    total = currentTotal - currentValue;
+    currentTotal = total;
+    screen.innerText = total;
+    currentValue = 0;
+  } else if (previousOperator === "÷") {
+    total = currentTotal / currentValue;
+    currentTotal = total;
+    screen.innerText = total;
+    currentValue = 0;
+  }
 }
 
-numbers.forEach(number => number.addEventListener("click", handleNumber));
-symbols.forEach(symbol => symbol.addEventListener("click", handleSymbol));
-symbols.forEach(symbol => symbol.addEventListener("click", handleOperator));
+numbers.forEach((number) => number.addEventListener("click", handleNumber));
+symbols.forEach((symbol) => symbol.addEventListener("click", handleSymbol));
+symbols.forEach((symbol) => symbol.addEventListener("click", handleOperator));
